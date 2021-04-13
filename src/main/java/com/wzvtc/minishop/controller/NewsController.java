@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -44,7 +45,9 @@ public class NewsController {
         newsVo.setTitle(news.getTitle());
         Map<String,Object> map=new HashMap<>();
         map.put("status",0);
-        map.put("message",newsVo);
+        List<NewsVo> list=new ArrayList<>();
+        list.add(newsVo);
+        map.put("message",list);
         return JSON.toJSONString(map);
     }
 

@@ -14,6 +14,7 @@ public class SubCategory {
     Integer id;
 
     String image;
+    String name;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")

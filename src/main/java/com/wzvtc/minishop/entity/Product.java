@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -14,15 +15,22 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-    String image;
     String name;
+    String sell_point;
     Integer price;
-    String parameter;
-    String details;
     Integer num;
+    String image;
+    Integer status;
+    String content;
+    String album;
+    Date delete_time;
+    Date create_time;
+    Date update_time;
 
     @ManyToOne
     SubCategory subCategory;
 
-
+    @OneToMany(cascade = CascadeType.ALL,
+            mappedBy = "product")
+    Set<Album> albums;
 }
